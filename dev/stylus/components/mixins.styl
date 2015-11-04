@@ -1,0 +1,14 @@
+//- Mixins
+clearfix()
+  &:before
+  &:after
+    content ''
+    display table
+    clear both
+
+anim(var, time)
+  transition var time ease-out
+smooth()
+  -webkit-transform translate3d(0, 0, 0)
+  -webkit-backface-visibility hidden
+  -webkit-perspective 1000
