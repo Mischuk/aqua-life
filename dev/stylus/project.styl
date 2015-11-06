@@ -1,41 +1,952 @@
 /*!=================
   Base layout
 ====================*/
-html, body
+html,
+*, *:after, *:before
+  box-sizing border-box
+html,
+body
   height 100%
-  min-width $min-width + 50
-.container
-  min-height 100%
-  min-width $min-width
-  margin-bottom -($footer-height)
-  &:after
-    content ''
-    display block
-    height $footer-height + $footer-margin-top
-footer, .container:after
-  height $footer-height
-  min-width: $min-width
+  min-width $min-width + 40
 .wrapper
   width $min-width
   position relative
   margin 0 auto
   height 100%
+
 /*!=================
   Basic elements
 ====================*/
-img{
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-}
-.inp-textarea,
-textarea{
-  max-height: 400px;
-  max-width: 100%;
-}
+html
+  regular()
+  font-size 30px
+  line-height 1
+img
+  display inline-block
+  vertical-align middle
+  max-width 100%
+  max-height 100%
+  width auto
+  height auto
+.inp-textarea, textarea
+  max-height 400px
+  max-width 100%
+
 /*!=================
   Extended classes
 ====================*/
+.leaves
+  .right
+    .item
+      position fixed
+    .item-1
+      right 0
+      top -70px
+      z-index -1
+    .item-2
+      right 20px
+      top -20px
+      z-index -1
+    .item-3
+      right 100px
+      top 20px
+    .item-4
+      right 10px
+      top 320px
+      z-index -1
+    .item-5
+      right 100px
+      top 620px
+    .item-6
+      right -20px
+      top 520px
+      z-index -1
+    .item-7
+      right 220px
+      top 620px
+      z-index -1
+    .item-8
+      right 320px
+      top 720px
+      z-index -1
+  .left
+    .item
+      position fixed
+    .item-1
+      top 87px
+      left 125px
+      z-index -1
+    .item-2
+      left 25px
+      top 125px
+      z-index -1
+    .item-3
+      left 145px
+      top 300px
+    .item-4
+      left 125px
+      top 435px
+      z-index -1
+    .item-5
+      left 125px
+      top 635px
+      z-index -1
+    .item-6
+      left -50px
+      top 235px
+      z-index -1
+    .item-7
+      left 25px
+      top 735px
+      z-index -1
+    .item-8
+      left 200px
+      top 700px
+      z-index -1
+/* header */
+.remove-fixed.header
+  &:after, &:before
+    display none
+.header
+  height 900px
+  width 100%
+  position relative
+  &:before,
+  &:after
+    content ''
+    position fixed
+    z-index -1
+    top 0
+    width 416px
+    height 769px
+  &:before
+    left 0
+    background url('../images/leaves-left.png') no-repeat 0 0
+  &:after
+    right 0
+    background url('../images/leaves-right.png') no-repeat 0 0
+  .wrapper
+    clearfix()
+  .logo
+    float left
+    position relative
+    top 30px
+    display block
+    width 220px
+    height 118px
+    background url(../images/logo.png) 0 0 no-repeat
+    text-indent -9999px
+  .locate
+    float left
+    margin-left 35px
+    margin-top 30px
+    bold()
+    font-size 35px
+    text-transform uppercase
+    cursor default
+  .contacts
+    float right
+    margin-top 27px
+    .tel
+      margin-bottom 20px
+      a
+        font-size 45px
+        line-height 1
+        medium()
+        color #000
+    .callback
+      a
+        display block
+        width 100%
+        height 58px
+        line-height 52px
+        vertical-align middle
+        background-color $red
+        text-align center
+        border-radius 50px
+        span
+          color #fff
+          display inline-block
+          vertical-align middle
+          text-decoration underline
+          line-height 1
+          bold()
+          font-size 30px
+          text-transform uppercase
+        &:hover span
+          text-decoration none
+  .reserve-title
+    position absolute
+    left 0
+    bottom 175px
+    height 105px
+    width 100%
+    background-color $red
+    transform skewY(-3deg)
+    outline: 1px solid transparent
+    backface-visibility: hidden
+    z-index 10
+    medium()
+    font-size 80px
+    line-height 105px
+    color #fff
+    text-align center
+    text-transform uppercase
+  .reserve
+    position absolute
+    left 0
+    bottom 50px
+    height 125px
+    width 100%
+    transform skewY(-3deg)
+    outline: 1px solid transparent
+    backface-visibility: hidden
+    background-color $blue
+    .title
+      font-size 40px
+      line-height 40px
+      color #fff
+      text-transform uppercase
+      text-align center
+      medium()
+      padding-top 10px
+      cursor default
+    form
+      clearfix()
+      padding 10px 20px
+      ::-webkit-input-placeholder
+         color: #badee9
+      :-moz-placeholder
+         color: #badee9
+      ::-moz-placeholder
+         color: #badee9
+      :-ms-input-placeholder
+         color: #badee9
+      input
+        float left
+        width 31.3%
+        margin-right 3%
+        height 50px
+        &:last-child
+          margin-right 0
+      .inp-text
+        padding 0 10px
+        background-color $blue
+        border 2px solid #fff
+        font-size 30px
+        regular()
+        color #fff
+      .tel-mask
+        text-align center
+      .inp-submit
+        background-color $red
+        border none
+        color #fff
+        bold()
+        font-size 30px
+        text-transform uppercase
+        text-decoration underline
+        &:hover
+          text-decoration none
+  @media all and (min-width 1680px)
+    background-size initial
+    background-position 50% 0% !important
+  @media all and (max-height 800px)
+    height 600px
+
+/* shorty */
+.shorty
+  position relative
+  height 290px
+  background-color #fff
+  z-index 20
+  top 0
+  &:before
+    content ''
+    width 100%
+    height 100px
+    background-color #fff
+    position absolute
+    left 0
+    top -50px
+    z-index 10
+    transform skewY(-3deg)
+    outline: 1px solid transparent
+    backface-visibility: hidden
+  .slogan
+    font-size 30px
+    color $blue
+    transform skewY(-3deg)
+    outline: 1px solid transparent
+    backface-visibility: hidden
+    text-transform uppercase
+    letter-spacing 1px
+    strong
+      bold()
+  .title,
+  .number
+    position relative
+    z-index 20
+    text-align center
+    color #fff
+    transform skewY(-3deg)
+    outline: 1px solid transparent
+    backface-visibility: hidden
+    anim(all, .25s)
+    text-transform uppercase
+  .item:hover .title,
+  .item:hover .number
+    color $blue
+  .title
+    position absolute
+    left 0
+    bottom -25px
+    width 100%
+    medium()
+    font-size 30px
+    text-transform uppercase
+  .number
+    font-size 110px
+    line-height 80px
+    .x-size
+      font-size 50px
+      bold()
+    &.second
+      letter-spacing -7px
+    &.third
+      letter-spacing -15px
+      position relative
+      &:after
+        content '-'
+        position absolute
+        left 50%
+        top 50%
+        margin-left -30px
+        margin-top -60px
+      .minutes
+        medium()
+        font-size 30px
+        letter-spacing 0px
+        &:first-child
+          display inline-block
+          margin-left -5px
+        &:last-child
+          display inline-block
+          padding-left 2px
+  .ovh
+    overflow hidden
+    width 100%
+    padding-top 30px
+    position relative
+    top -30px
+  .ovh + .slogan
+    position relative
+    top -30px
+  .item
+    anim(all, .3s)
+    transform translateX(2000px)
+    opacity 0
+    &.animated
+      opacity 1
+      transform translateX(0)
+.hexagons
+  position relative
+  z-index 20
+  top -10px
+  .item
+    position relative
+    width 220px
+    margin-left 20px
+    cursor default
+    float left
+    &:nth-child(4n+1)
+      margin-left 0
+      clear left
+    &:nth-child(2)
+      top -10px
+    &:nth-child(3)
+      top -20px
+    &:nth-child(4)
+      top -30px
+    &:nth-child(5)
+      top 0
+    &:nth-child(6)
+      top -10px
+    &:nth-child(7)
+      top -20px
+    &:nth-child(8)
+      top -30px
+.hexagons
+  .flip-container
+    perspective: 1000
+  // .flip-container:hover .flipper,
+  .flip-container.hover .flipper
+    transform rotateY(180deg)
+  .flip-container,
+  .front,
+  .back
+    width 220px
+    height 255px
+  .flipper
+    transition 0.6s
+    transform-style preserve-3d
+    position relative
+  .front,
+  .back
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  .front
+    z-index: 2
+    a {
+      display block
+      position: relative;
+      width: 220px;
+      height: 127.02px;
+      background-color: $blue;
+      margin: 63.51px 0;
+      border-left: solid 5px $blue;
+      border-right: solid 5px $blue;
+    }
+
+    a:before,
+    a:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 155.56px;
+      height: 155.56px;
+      -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+      transform: scaleY(0.5774) rotate(-45deg);
+      background-color: inherit;
+      left: 27.2183px;
+    }
+
+    a:before {
+      top: -77.7817px;
+      border-top: solid 7.0711px $blue;
+      border-right: solid 7.0711px $blue;
+    }
+
+    a:after {
+      bottom: -77.7817px;
+      border-bottom: solid 7.0711px $blue;
+      border-left: solid 7.0711px $blue;
+    }
+  .back
+    transform: rotateY(180deg);
+    a {
+      display block
+      position: relative;
+      width: 220px;
+      height: 127.02px;
+      background-color: #ffffff;
+      margin: 63.51px 0;
+      border-left: solid 5px $blue;
+      border-right: solid 5px $blue;
+    }
+
+    a:before,
+    a:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 155.56px;
+      height: 155.56px;
+      -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+      transform: scaleY(0.5774) rotate(-45deg);
+      background-color: inherit;
+      left: 27.2183px;
+    }
+
+    a:before {
+      top: -77.7817px;
+      border-top: solid 7.0711px $blue;
+      border-right: solid 7.0711px $blue;
+    }
+
+    a:after {
+      bottom: -77.7817px;
+      border-bottom: solid 7.0711px $blue;
+      border-left: solid 7.0711px $blue;
+    }
+
+.skew
+  transform skewY(-3deg)
+  outline: 1px solid transparent
+  backface-visibility: hidden
+.skew-outer
+  transform skewY(3deg)
+  outline: 1px solid transparent
+  backface-visibility: hidden
+.headling
+  font-size 40px
+  line-height 1
+  medium()
+  color #fff
+  text-transform uppercase
+  text-align center
+  padding 25px 0
+
+
+/* gallery */
+.gallery
+  position relative
+  z-index 1
+  height 900px
+  padding-top 50px
+  background #fff url(../images/gallery.png) 50% 50% no-repeat
+  background-size cover
+  .owl-nav
+    .owl-next, .owl-prev
+      position absolute
+      top 50%
+      margin-top -25px !important
+    .owl-next
+      margin-top -45px !important
+    .front
+      width: 120px;
+      height: 69.28px;
+      background-color: $blue;
+      margin: 34.64px 0;
+      border-left: solid 5px $blue;
+      border-right: solid 5px $blue;
+      text-indent -9999px
+    .front:before,
+    .front:after
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 84.85px;
+      height: 84.85px;
+      -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+      transform: scaleY(0.5774) rotate(-45deg);
+      background-color: inherit;
+      left: 12.5736px;
+    .front:before
+      top: -42.4264px;
+      border-top: solid 7.0711px $blue;
+      border-right: solid 7.0711px $blue;
+    .front:after
+      bottom: -42.4264px;
+      border-bottom: solid 7.0711px $blue;
+      border-left: solid 7.0711px $blue;
+    .end {
+      width: 120px;
+      height: 69.28px;
+      background-color: #ffffff;
+      margin: 34.64px 0;
+      border-left: solid 5px $blue;
+      border-right: solid 5px $blue;
+    }
+
+    .end:before,
+    .end:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 84.85px;
+      height: 84.85px;
+      -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+      transform: scaleY(0.5774) rotate(-45deg);
+      background-color: inherit;
+      left: 12.5736px;
+    }
+
+    .end:before {
+      top: -42.4264px;
+      border-top: solid 7.0711px $blue;
+      border-right: solid 7.0711px $blue;
+    }
+
+    .end:after {
+      bottom: -42.4264px;
+      border-bottom: solid 7.0711px $blue;
+      border-left: solid 7.0711px $blue;
+    }
+    .owl-next, .owl-prev
+      text-indent -9999px
+      i
+        display block
+        width: 41px;
+        height: 71px;
+        position absolute
+        left 50%
+        top 50%
+        margin-top -(@height/2)
+        margin-left -(@width/2)
+        z-index 20
+    .owl-next
+      right -60px
+      left auto
+      i
+        background: url('../images/sprite.png') no-repeat 0 -80px
+      &:hover i
+        background-position -130px -80px
+    .owl-prev
+      left -60px
+      i
+        background: url('../images/sprite.png') no-repeat -59px -80px;
+      &:hover i
+        background-position -182px -79px
+
+  .owl-dots
+    position absolute
+    left 0
+    bottom -35px
+    width 100%
+    height 20px
+    text-align center
+    cursor default
+    .owl-dot
+      display inline-block
+      width 20px
+      height 20px
+      background-color #fff
+      border-radius 50%
+      margin-left 5px
+      margin-right 5px
+      &.active, &:hover
+        background-color $blue
+        border 5px solid #fff
+  .carousel
+    height 650px
+    .item,
+    .owl-item
+      opacity 0
+      anim(opacity, .5s)
+      &.active
+        opacity 1
+        .item
+          opacity 1
+    .item
+      height 650px
+      img
+        width 100%
+        height 100%
+
+.programms
+  position relative
+  z-index 2
+  top -50px
+  height 920px
+  overflow hidden
+  &:after
+    content ''
+    position absolute
+    left 0
+    top 0
+    width 100%
+    height 100%
+    background url(../images/programms-pattern.jpg) 0 0 repeat
+    transform skewY(0)
+    outline: 1px solid transparent
+    backface-visibility: hidden
+  .headling
+    color $blue
+    padding 35px 0 70px 0
+    position relative
+    z-index 1
+  .item
+    margin-bottom 30px
+    anim(all, .3s)
+    transform translateX(2000px)
+    opacity 0
+    &.animated
+      opacity 1
+      transform translateX(0)
+    a
+      position relative
+      display block
+    .title
+      position absolute
+      smooth()
+      left 5px
+      bottom -10px
+      width 100%
+      z-index 20
+      color #fff
+      text-transform uppercase
+      font-size 30px
+      text-align center
+      medium()
+    .icon
+      &:after,
+      &:before
+        content ''
+        position absolute
+        left 50%
+        z-index 10
+        background-image url('../images/sprite.png')
+        background-repeat no-repeat
+        anim(all, .25s)
+      &:before
+        opacity 0
+    .back
+      .icon
+        &:after
+          opacity 0
+        &:before
+          opacity 1
+      .title
+        color $blue
+  .item-1
+    .icon
+      &:after, &:before
+        width: 81px;
+        height: 91px;
+        margin-left -(@width/2)
+        top -20px
+      &:after
+        background-position -6px -170px
+      &:before
+        background-position -6px -420px
+  .item-2
+    .icon
+      &:after, &:before
+        width: 100px;
+        height: 61px;
+        top 0px
+        margin-left -(@width/2)
+      &:after
+        background-position -100px -170px;
+      &:before
+        background-position -100px -420px
+  .item-3
+    .icon
+      &:after, &:before
+        width: 83px;
+        height: 106px;
+        top -35px
+        margin-left -35px
+      &:after
+        background: url('../images/sprite.png') no-repeat -210px -170px
+      &:before
+        background: url('../images/sprite.png') no-repeat -210px -420px
+  .item-4
+    .icon
+      &:after, &:before
+        width: 77px;
+        height: 80px;
+        top -20px
+        margin-left -(@width/2)
+      &:after
+        background: url('../images/sprite.png') no-repeat -300px -175px
+      &:before
+        background: url('../images/sprite.png') no-repeat -329px -420px
+  .item-5
+    .icon
+      &:after, &:before
+        width: 74px;
+        height: 90px;
+        margin-left -(@width/2)
+        top -20px
+      &:after
+        background: url('../images/sprite.png') no-repeat -6px -305px
+      &:before
+        background: url('../images/sprite.png') no-repeat -3px -550px
+  .item-6
+    .icon
+      &:after, &:before
+        width: 68px;
+        height: 90px;
+        margin-left -(@width/2)
+        top -25px
+      &:after
+        background: url('../images/sprite.png') no-repeat -100px -305px
+      &:before
+        background: url('../images/sprite.png') no-repeat -101px -550px
+  .item-7
+    .icon
+      &:after, &:before
+        width: 96px;
+        height: 81px;
+        margin-left -(@width/2)
+        top -20px
+      &:after
+        background: url('../images/sprite.png') no-repeat -210px -305px
+      &:before
+        background: url('../images/sprite.png') no-repeat -210px -555px
+  .item-8
+    .icon
+      &:after, &:before
+        width: 96px;
+        height: 80px;
+        margin-left -(@width/2)
+        top -20px
+      &:after
+        background: url('../images/sprite.png') no-repeat -329px -305px
+      &:before
+        background: url('../images/sprite.png') no-repeat -329px -550px
+
+.order
+  height 1024px
+  // background url(../images/order.png) no-repeat
+  // background-position 50% 50% !important
+  // background-size cover
+  position relative
+  top -200px
+.map
+  position relative
+  top -300px
+  z-index -1
+  #map
+    width: 100%;
+    height: 720px;
+    z-index 20
+    position relative
+  .footer-callback
+    position absolute
+    left 0
+    bottom 0
+    width 100%
+    height 150px
+    .wrapper
+      height 150px
+      background-color $blue
+    .contacts, .clock, .callback
+      display inline-block
+      vertical-align middle
+    .contacts
+      padding-top 10px
+      padding-left 20px
+      .tel
+        font-size 46px
+        line-height 1
+        border-bottom 2px solid #fff
+        medium()
+        a
+          color #fff
+      .address
+        font-size 40px
+        line-height 1
+        color #fff
+        text-transform uppercase
+        medium()
+    .clock
+      padding-left 60px
+      padding-right 60px
+      font-size 0
+      position relative
+      .dib
+        display inline-block
+        position relative
+        &:last-child
+          .minutes
+            left 46px
+      .hours
+        font-size 110px
+        color #fff
+        padding 0 10px
+      .tire
+        position absolute
+        width 100%
+        height 100%
+        text-align center
+        font-size 110px
+        color #fff
+        left 0
+        top -10px
+      .minutes
+        position absolute
+        left 40px
+        bottom 12px
+        color #fff
+        medium()
+        font-size 30px
+    .callback
+      a
+        display block
+        height 50px
+        line-height 48px
+        padding 0 30px
+        background-color $red
+        color #fff
+        text-decoration underline
+        &:hover
+          text-decoration none
+
+.footer
+  height 90px
+  background-color #fff
+  position relative
+  top -340px
+  z-index 20
+  .wrapper
+    display table
+  .copyright
+    display table-cell
+    vertical-align bottom
+    color $blue
+    cursor default
+    span
+      bold()
+  .developed
+    display table-cell
+    vertical-align bottom
+    text-align right
+    a
+      position relative
+      top 22px
+      color $blue
+      padding-right 90px
+      &:after
+        content ''
+        background: url('../images/sprite.png') no-repeat 0 0;
+        width: 80px;
+        height: 70px;
+        position absolute
+        right 0px
+        top 50%
+        margin-top -(@height/2)
+      &:hover
+        text-decoration underline
+
+.envelope
+  position relative
+  width 620px
+  height 100%
+  margin 0 auto
+  .envelope-form
+    width 500px
+    height 800px
+    background-color #f9f9ee
+    position absolute
+    left 50%
+    margin-left -(@width/2)
+    bottom 50px
+  .envelope-body
+    position absolute
+    width 620px
+    height 100%
+    left 50%
+    margin-left -(@width/2)
+    bottom 50px
+    overflow hidden
+    .top
+      position absolute
+      left 0
+      bottom 323px
+      width 620px
+      height 208px
+      background url('../images/envelope-top.png') 0 0 no-repeat
+    .back
+      position absolute
+      left 0
+      bottom 0
+      width 620px
+      height 323px
+      background url('../images/envelope-back.png') no-repeat 0 0
+    .front
+      position absolute
+      left 0
+      bottom 0
+      height 322px
+      width 620px
+      background url('../images/envelope-front.png') no-repeat 0 0
+      z-index 20
