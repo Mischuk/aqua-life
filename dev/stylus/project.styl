@@ -31,7 +31,10 @@ img
 .inp-textarea, textarea
   max-height 400px
   max-width 100%
-
+strong, b
+  font-weight normal
+  font-style normal
+  bold()
 /*!=================
   Extended classes
 ====================*/
@@ -222,7 +225,7 @@ img
          color: #badee9
       :-ms-input-placeholder
          color: #badee9
-      input
+      .form-label
         float left
         width 31.3%
         margin-right 3%
@@ -230,6 +233,8 @@ img
         &:last-child
           margin-right 0
       .inp-text
+        width 100%
+        height 50px
         padding 0 10px
         background-color $blue
         border 2px solid #fff
@@ -239,6 +244,8 @@ img
       .tel-mask
         text-align center
       .inp-submit
+        height 50px
+        padding 0 30px
         background-color $red
         border none
         color #fff
@@ -634,8 +641,10 @@ img
   position relative
   z-index 2
   top -50px
-  height 920px
+  height 830px
   overflow hidden
+  &.z30
+    z-index 30
   &:after
     content ''
     position absolute
@@ -786,9 +795,7 @@ img
 
 .order
   height 1024px
-  // background url(../images/order.png) no-repeat
-  // background-position 50% 50% !important
-  // background-size cover
+  z-index 2
   position relative
   top -200px
 .map
@@ -806,6 +813,7 @@ img
     bottom 0
     width 100%
     height 150px
+    z-index 20
     .wrapper
       height 150px
       background-color $blue
@@ -907,14 +915,37 @@ img
       &:hover
         text-decoration underline
 
+.radio-custom
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor pointer
+  text-align center
+  & > input[type=radio]
+    display none
+  & > .button
+    background $blue
+    border solid 4px $blue
+    display inline-block
+    width 16px
+    height 16px
+    border-radius 100%
+    vertical-align middle
+  & > input[type=radio]:checked
+    & + .button
+      background #fff
 .envelope
-  position relative
+  position absolute
   width 620px
   height 100%
-  margin 0 auto
+  left 50%
+  bottom 0
+  margin-left -(@width/2)
   .envelope-form
     width 500px
-    height 800px
+    height 850px
     background-color #f9f9ee
     position absolute
     left 50%
@@ -934,7 +965,19 @@ img
       bottom 323px
       width 620px
       height 208px
-      background url('../images/envelope-top.png') 0 0 no-repeat
+      img
+        width 100%
+        height 100%
+    .close
+      position absolute
+      left 0
+      top 0
+      z-index 21
+      width 620px
+      height 0
+      img
+        width 100%
+        height 100%
     .back
       position absolute
       left 0
@@ -950,3 +993,134 @@ img
       width 620px
       background url('../images/envelope-front.png') no-repeat 0 0
       z-index 20
+.envelope-form
+  color $blue
+  padding-left 15px
+  padding-right 15px
+  cursor default
+  ::-webkit-input-placeholder
+     color: $blue
+     regular()
+     font-size 25px
+  :-moz-placeholder
+     color: $blue
+     regular()
+     font-size 25px
+  ::-moz-placeholder
+     color: $blue
+     regular()
+     font-size 25px
+  :-ms-input-placeholder
+     color: $blue
+     regular()
+     font-size 25px
+  .radio-custom
+    margin-right 20px
+    height 30px
+    line-height 30px
+    display inline-block
+  h2
+    font-size 40px
+    text-transform uppercase
+    text-align center
+    medium()
+    padding 15px
+  .label
+    bold()
+    text-transform uppercase
+    text-decoration underline
+  .radio-group
+    margin 10px 0 20px
+  .radio-label
+    display inline-block
+    vertical-align middle
+    medium()
+  .square .button
+    border-radius 0
+  form
+    clearfix()
+    .form-label
+      float left
+      width 225px
+      &:first-child
+        margin-right 15px
+      input
+        width 100%
+        text-align center
+        font-size 25px
+        height 50px
+        line-height 48px
+        color $blue
+        regular()
+      .inp-text
+        border 2px solid $blue
+      label.error
+        width 240px
+    .inp-submit
+      position absolute
+      left 50%
+      bottom 50px
+      display block
+      width 300px
+      height 55px
+      line-height 55px
+      border-radius 50px
+      margin-left -(@width/2)
+      z-index 20
+      background-color $red
+      border none
+      text-transform uppercase
+      text-decoration underline
+      bold()
+      font-size 30px
+      color #fff
+      &:hover
+        text-decoration none
+  .card
+    position absolute
+    left 50%
+    bottom 65px
+    width 478px
+    height 288px
+    margin-left -241px
+    .card-item
+      position absolute
+      left 0
+      top 0
+      width 100%
+      height 100%
+
+.envelope-form
+  &.white-card
+    .card
+      .white
+        background url('../images/cards/white.png') no-repeat 1px 0
+  &.orange-card
+    .card
+      .orange
+        background url('../images/cards/orange.png') no-repeat 0 0
+  &.purple-card
+    .card
+      .purple
+        background url('../images/cards/purple.png') no-repeat 0 0
+  &.green-card
+    .card
+      .green
+        background url('../images/cards/green.png') no-repeat 0 0
+/* Card animatinons */
+.step-1
+  .envelope-form
+    anim(transform, 1s)
+    transform translateY(590px)
+.envelope-body .top.step-2
+  anim(height, .5s)
+  height 0
+.envelope-body .close.step-3
+  anim(height, .25s)
+  height 215px
+.envelope.step-2
+  transition transform 2s ease-out
+  transition-delay .2s
+  transform translateY(-1024px)
+.envelope.step-3
+  height 322px

@@ -1,0 +1,33 @@
+/* Форма */
+.form-input.error {
+  border: 2px solid $red !important;
+}
+.form-input.valid {
+  background: #fff !important;
+  color: $blue !important;
+}
+.form-label {
+  position: relative;
+}
+label.error {
+  position: absolute;
+  top: -16px;
+  left: 0;
+  font: 400 14px/24px 'arial', sans-serif;
+  height: 26px;
+  padding: 0 10px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0B0B0B;
+  color: #000;
+}
+label.error:after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #fff;
+}

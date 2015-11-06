@@ -1,0 +1,101 @@
+<div class="envelope-form white-card">
+  <h2>Создайте свою карту</h2>
+  <div class="input-group">
+    <div class="label">Сколько лет?</div>
+    <div class="radio-group">
+      <label class="radio-custom green-card-trigger">
+        <input name="user-old" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">3-8</span>
+      </label>
+      <label class="radio-custom green-card-trigger">
+        <input name="user-old" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">9-16</span>
+      </label>
+      <label class="radio-custom white-card-trigger">
+        <input name="user-old" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">16+</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="label">Когда удобно заниматься?</div>
+    <div class="radio-group">
+      <label class="radio-custom white-card-trigger">
+        <input name="user-time" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">В любое время</span>
+      </label>
+      <label class="radio-custom orange-card-trigger">
+        <input name="user-time" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">Утром</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="label">На сколько месяцев?</div>
+    <div class="radio-group">
+      <label class="radio-custom">
+        <input name="user-duration" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">1</span>
+      </label>
+      <label class="radio-custom">
+        <input name="user-duration" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">2</span>
+      </label>
+      <label class="radio-custom">
+        <input name="user-duration" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">3</span>
+      </label>
+      <label class="radio-custom">
+        <input name="user-duration" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">4</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="input-group square">
+    <div class="label">Специальная карта</div>
+    <div class="radio-group">
+      <label class="radio-custom purple-card-trigger">
+        <input name="user-specials" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">Корпоративная</span>
+      </label>
+      <label class="radio-custom purple-card-trigger">
+        <input name="user-specials" type="radio"/>
+        <span class="button"></span>
+        <span class="radio-label">Групповая</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="inp-group">
+    <form action="form.php" method='post' class="form card-form">
+      <div class='form-label'>
+        <input type="text" placeholder='ВАШЕ ИМЯ' name='name' class="form-input inp-text" required="required">
+      </div>
+      <div class='form-label'>
+        <input type="tel" placeholder='+7(___) ___-__-__' name='tel' class="form-input inp-text" required="required">
+      </div>
+      <input type="hidden" name='input_type'>
+      <input type="submit" class="form-submit inp-submit" id="start-anim" value='Заказать карту'>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="card-item white current"></div>
+    <div class="card-item green"></div>
+    <div class="card-item purple"></div>
+    <div class="card-item orange"></div>
+  </div>
+</div>

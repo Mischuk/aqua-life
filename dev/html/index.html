@@ -66,17 +66,22 @@
       <div class="contacts">
         <div class="tel"><a href="tel:+74952690316">+7 (495) 269-03-16</a></div>
         <div class="callback">
-          <a href="#" class="red-button"><span>Заказать звонок</span></a>
+          <a href="#callback-dialog" class="red-button popup-with-zoom-anim"><span>Заказать звонок</span></a>
         </div>
       </div>
       <div class="bottom">
         <div class="reserve-title">Загородный фитнес-клуб</div>
         <div class="reserve">
           <div class="title">успей забронировать карту на выгодных условиях</div>
-          <form>
-            <input type="text" name="user-name" placeholder="ВАШЕ ИМЯ" class="inp-text">
-            <input type="text" name="user-tel" placeholder="+7 (___) ___-__-__" class="tel-mask inp-text">
-            <input type="submit" value="Забронировать" class="inp-submit">
+          <form action="form.php" method='post' class="form">
+            <div class='form-label'>
+              <input type="text" placeholder='ВАШЕ ИМЯ' name='name' class="form-input inp-text" required="required">
+            </div>
+            <div class='form-label'>
+              <input type="tel" placeholder='+7(___) ___-__-__' name='tel' class="form-input inp-text" required="required">
+            </div>
+            <input type="hidden" name='input_type'>
+            <input type="submit" class="form-submit inp-submit" value='Забронировать'>
           </form>
         </div>
       </div>
@@ -180,13 +185,13 @@
         <div class="flip-container item item-1" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item1-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Тренажерные<br/>залы</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item1-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Тренажерные<br/>залы</span>
               </a>
@@ -197,13 +202,13 @@
         <div class="flip-container item item-2" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item2-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Водные<br/>программы</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item2-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Водные<br/>программы</span>
               </a>
@@ -214,13 +219,13 @@
         <div class="flip-container item item-3" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item3-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Женская<br/>студия</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item3-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Женская<br/>студия</span>
               </a>
@@ -231,13 +236,13 @@
         <div class="flip-container item item-4" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item4-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Бойцовский<br/>клуб</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item4-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Бойцовский<br/>клуб</span>
               </a>
@@ -248,13 +253,13 @@
         <div class="flip-container item item-5" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item5-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Активный<br/>отдых</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item5-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Активный<br/>отдых</span>
               </a>
@@ -265,13 +270,13 @@
         <div class="flip-container item item-6" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item6-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Йога,<br/>пилатес</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item6-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Йога,<br/>пилатес</span>
               </a>
@@ -282,13 +287,13 @@
         <div class="flip-container item item-7" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item7-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">spa<br/>салон</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item7-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">spa<br/>салон</span>
               </a>
@@ -299,13 +304,13 @@
         <div class="flip-container item item-8" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
-              <a href="#">
+              <a href="#item8-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Персональный<br/>тренинг</span>
               </a>
             </div>
             <div class="back">
-              <a href="#">
+              <a href="#item8-dialog" class="popup-with-zoom-anim">
                 <span class="icon"></span>
                 <span class="title skew">Персональный<br/>тренинг</span>
               </a>
@@ -321,9 +326,10 @@
       <div class="envelope">
         <div class="envelope-body">
           <div class="back"></div>
-          <div class="top"></div>
+          <div class="top"><img src="images/envelope-top.png" alt=""></div>
+          <div class="close"><img src="images/envelope-close.png" alt=""></div>
           <div class="front"></div>
-          <div class="envelope-form">form</div>
+          //= templates/eform.html
         </div>
       </div>
     </div>
@@ -343,7 +349,7 @@
           <div class="dib tire">-</div>
           <div class="dib"><span class="hours">1</span><span class="minutes">:00</span></div>
         </div>
-        <div class="callback"><a href="#">Заказать звонок</a></div>
+        <div class="callback"><a class="popup-with-zoom-anim" href="#callback-dialog">Заказать звонок</a></div>
       </div>
     </div>
   </div>
@@ -355,6 +361,24 @@
     </div>
   </div>
 
+  <a class="popup-with-zoom-anim hidden-button" id="success-trigger" href="#success-dialog">Спасибо</a>
+  <div id="success-dialog" class="zoom-anim-dialog mfp-hide skew">
+    <h1>Спасибо за заявку</h1>
+  </div>
+  <div id="callback-dialog" class="zoom-anim-dialog mfp-hide skew">
+    <h1>Оставьте заявку и мы перезвоним Вам</h1>
+    <form action="form.php" method='post' class="form">
+      <div class='form-label'>
+        <input type="text" placeholder='ВАШЕ ИМЯ' name='name' class="form-input inp-text" required="required">
+      </div>
+      <div class='form-label'>
+        <input type="tel" placeholder='+7(___) ___-__-__' name='tel' class="form-input inp-text" required="required">
+      </div>
+      <input type="hidden" name='input_type'>
+      <input type="submit" class="form-submit inp-submit" value='Забронировать'>
+    </form>
+  </div>
+  //= templates/modals.html
   //= templates/scripts.html
 </body>
 </html>

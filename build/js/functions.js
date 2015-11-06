@@ -1,5 +1,161 @@
 $(document).ready(function(){
   //Functions
+
+
+
+  function cards() {
+    $envForm = $('.envelope-form');
+    $('.green-card-trigger').on('click', function(){
+      $envForm.removeClass('white-card orange-card purple-card').addClass('green-card');
+    });
+    $('.white-card-trigger').on('click', function(){
+      $envForm.removeClass('green-card orange-card purple-card').addClass('white-card');
+    });
+    $('.orange-card-trigger').on('click', function(){
+      $envForm.removeClass('white-card green-card purple-card').addClass('orange-card');
+    });
+    $('.purple-card-trigger').on('click', function(){
+      $envForm.removeClass('white-card orange-card green-card').addClass('purple-card');
+    });
+  };
+
+  function modals() {
+    $('.popup-with-zoom-anim').magnificPopup({
+        type: 'inline',
+
+        fixedContentPos: false,
+        fixedBgPos: true,
+
+        overflowY: 'auto',
+
+        closeBtnInside: true,
+        preloader: false,
+
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in'
+      });
+  }
+
+  function form() {
+    // Маска для телефона
+    $("[name=tel]").mask("+7(999) 999-99-99");
+
+    // Обработка форма на AJAX
+    $.validator.addMethod("minlenghtphone", function (value, element) {
+      return value.replace(/\D+/g, '').length > 10;
+    }, "Введите полный номер.");
+    $.validator.addMethod("requiredphone", function (value, element) {
+      return value.replace(/\D+/g, '').length > 1;
+    }, "Это поле необходимо заполнить.");
+
+    $("form").each(function(){
+      if($(this).hasClass('card-form')) {
+        $(this).validate({
+          rules: {
+            name: {
+              required: true,
+            },
+            tel: {
+              requiredphone: true,
+              minlenghtphone: true
+            }
+          },
+          submitHandler: function(form, event){
+            event = event || window.event;
+            $(form).ajaxSubmit({
+                //dataType: 'script',
+                error: function(){
+                  alert("Ошибка!");
+                },
+                success: function(responseText, statusText, xhr){
+                  // Отправка данных формы в Comagic
+                  /*
+                  Comagic.addOfflineRequest({
+                      name: $(form).find('[name="name"]').val(),
+                      phone: $(form).find('[name="tel"]').val(),
+                  });
+                  */
+                  // Цель на отправку формы
+                  /****  Поменять номер счетчика ****/
+                  //yaCounter29402220.reachGoal('ORDER');
+
+                  // Очистка форм после отправки
+                  $('.form-input').val('');
+                  $('.envelope').addClass('step-1').delay(600).queue(function(){
+                      $('.envelope-body .top, .envelope').addClass('step-2').delay(300).queue(function(){
+                        $('.programms').addClass('z30').delay(1200).queue(function(){
+                          $('#success-trigger').trigger('click');
+
+                            setTimeout(function(){
+                            $('#success-dialog .mfp-close').trigger('click');
+                            $('.envelope').removeClass('step-1');
+                            $('.envelope-body .top, .envelope').removeClass('step-2');
+                            $('.programms').removeClass('z30');
+                            $('.envelope-body .close').removeClass('step-3');
+                            $('.envelope').removeClass('step-3');
+                            }, 5 * 1000);
+                        });
+                        $('.envelope-body .close').addClass('step-3');
+                        $('.envelope').addClass('step-3');
+                      });
+                  });
+                }
+              }
+            );
+            return false;
+          }
+        });
+      } else {
+        $(this).validate({
+          rules: {
+            name: {
+              required: true,
+            },
+            tel: {
+              requiredphone: true,
+              minlenghtphone: true
+            }
+          },
+          submitHandler: function(form, event){
+            event = event || window.event;
+            $(form).ajaxSubmit({
+                //dataType: 'script',
+                error: function(){
+                  alert("Ошибка!");
+                },
+                success: function(responseText, statusText, xhr){
+                  // Отправка данных формы в Comagic
+                  /*
+                  Comagic.addOfflineRequest({
+                      name: $(form).find('[name="name"]').val(),
+                      phone: $(form).find('[name="tel"]').val(),
+                  });
+                  */
+                  // Цель на отправку формы
+                  /****  Поменять номер счетчика ****/
+                  //yaCounter29402220.reachGoal('ORDER');
+
+                  // Очистка форм после отправки
+                  $('.form-input').val('');
+                  // Появление "спасибо"
+                  $('#success-trigger').trigger('click');
+
+                  // Через 5 сек скрываем "спасибо"
+                  setTimeout(function(){
+                    $('#success-dialog .mfp-close').trigger('click');
+                  }, 5 * 1000)
+                }
+              }
+            );
+            return false;
+          }
+        });
+      }
+    });
+
+
+  }
   function etc() {
     $('a[href=#]').click(function(e){
       e.preventDefault()
@@ -136,5 +292,8 @@ $(document).ready(function(){
   carousel();
   map();
   waypoint();
+  form();
+  modals();
+  cards();
 });
 
