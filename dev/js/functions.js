@@ -1,8 +1,9 @@
+$(window).on('load', function () {
+  $('#page-preloader').delay(1000).fadeOut(500);
+  $(window).stellar();
+});
 $(document).ready(function(){
   //Functions
-
-
-
   function cards() {
     $envForm = $('.envelope-form');
     $('.green-card-trigger').on('click', function(){
@@ -82,19 +83,15 @@ $(document).ready(function(){
 
                   // Очистка форм после отправки
                   $('.form-input').val('');
-                  $('.envelope').addClass('step-1').delay(600).queue(function(){
-                      $('.envelope-body .top, .envelope').addClass('step-2').delay(300).queue(function(){
-                        $('.programms').addClass('z30').delay(1200).queue(function(){
-                          $('#success-trigger').trigger('click');
-
-                            setTimeout(function(){
-                            $('#success-dialog .mfp-close').trigger('click');
-                            $('.envelope').removeClass('step-1');
-                            $('.envelope-body .top, .envelope').removeClass('step-2');
-                            $('.programms').removeClass('z30');
-                            $('.envelope-body .close').removeClass('step-3');
-                            $('.envelope').removeClass('step-3');
-                            }, 5 * 1000);
+                  $('.envelope').addClass('step-1').delay(300).queue(function(){
+                      $('.envelope-body .top, .envelope').addClass('step-2').delay(150).queue(function(){
+                        $('.programms').addClass('z30').delay(600).queue(function(){
+                          // $('#success-trigger').trigger('click');
+                          $('.envelope.step-2').hide();
+                          setTimeout(function(){
+                            // $('#success-dialog .mfp-close').trigger('click');
+                            $('#order-success').show();
+                          }, 100);
                         });
                         $('.envelope-body .close').addClass('step-3');
                         $('.envelope').addClass('step-3');
@@ -160,8 +157,6 @@ $(document).ready(function(){
     $('a[href=#]').click(function(e){
       e.preventDefault()
     });
-
-    $(window).stellar();
 
     $(".tel-mask").mask("+7 (999) 999-99-99");
 
@@ -250,7 +245,7 @@ $(document).ready(function(){
             (function(self) {
                 setTimeout(function() {
                     $(self).addClass('animated');
-                },(i*350)+0);
+                },(i*150)+0);
             })(this);
         });
       }
@@ -271,7 +266,7 @@ $(document).ready(function(){
             (function(self) {
                 setTimeout(function() {
                     $(self).addClass('animated');
-                },(i*350)+0);
+                },(i*150)+0);
             })(this);
         });
       }
@@ -284,6 +279,23 @@ $(document).ready(function(){
       }
     }, {
       offset: '90%'
+    });
+    // =======================================
+    $('.gallery').waypoint(function(direction) {
+      if (direction === 'down') {
+        $('.order-bg').removeClass('op0');
+        $('.header-bg').addClass('op0');
+      }
+    }, {
+      offset: '0%'
+    });
+    $('.gallery').waypoint(function(direction) {
+      if (direction === 'up') {
+        $('.order-bg').addClass('op0');
+        $('.header-bg').removeClass('op0');
+      }
+    }, {
+      offset: '0%'
     });
   };
 

@@ -2,7 +2,7 @@
 // Адрес почты на который придет сообщение
 if( clean($_POST["name"]) == 'q' || clean($_POST["name"]) == 'й'  ) :
     // Отправляем только разработчику
-    $mailto  = 'mischuk.alexander@gmail.com';
+    $mailto  = 'mb@lmg-media.ocm';
 elseif( clean($_POST["name"]) == 'test' || clean($_POST["name"]) == 'тест' ) :
     // Отправляем только нам
     $mailto  = 'marat@lmg-media.com'.',';
